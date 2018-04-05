@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  db:
+    image: postgres:10-alpine
+    ports:
+      - "5432"
+
+  web:
+    build:
+      context: .
+      args:
+        BUNDLE_WITH: development test
+    depends_on:
+      - db
+    environment:
+      RAILS_ENV: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+
+volumes:
+  bundle:
