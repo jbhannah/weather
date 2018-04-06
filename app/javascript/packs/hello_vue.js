@@ -6,9 +6,15 @@
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
 import Vue from 'vue'
+import SuiVue from 'semantic-ui-vue'
+
 import App from '../app.vue'
 
+import 'semantic-ui-css/semantic.min.css'
+
 document.addEventListener('DOMContentLoaded', () => {
+  Vue.use(SuiVue)
+
   const el = document.body.appendChild(document.createElement('hello'))
   const app = new Vue({
     el,
