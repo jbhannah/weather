@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <sui-menu fixed="left" inverted vertical>
-      <sui-item>
-        <strong>Weather</strong>
-      </sui-item>
-      <sui-item>
-        <sui-input icon="map" inverted placeholder="ZIP Code" transparent type="number" />
-      </sui-item>
+    <sui-sidebar animation="overlay" :visible="sidebarVisible">
+      <sui-menu-item header icon="times" @click="toggleSidebar">
+        Saved Locations
+      </sui-menu-item>
+    </sui-sidebar>
+    <sui-menu fixed="top">
+      <sui-menu-item icon="content" @click="toggleSidebar" />
+      <sui-menu-item header>
+        Weather
+      </sui-menu-item>
     </sui-menu>
-    <p>{{ message }}</p>
+    <sui-sidebar-pusher>
+      {{ message }}
+    </sui-sidebar-pusher>
   </div>
 </template>
 
@@ -16,15 +21,17 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      message: "Hello Vue!",
+      sidebarVisible: false
+    }
+  },
+  methods: {
+    toggleSidebar: function () {
+      this.sidebarVisible = !this.sidebarVisible;
     }
   }
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
