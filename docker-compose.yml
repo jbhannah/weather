@@ -29,6 +29,7 @@ services:
     ports:
       - "3035:3035"
     environment:
+      NODE_ENV: development
       RAILS_ENV: development
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
 
