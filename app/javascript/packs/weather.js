@@ -8,7 +8,7 @@
 import Vue from 'vue'
 import SuiVue from 'semantic-ui-vue'
 
-import App from '../app.vue'
+import App from '../weather/App'
 
 import 'semantic-ui-css/semantic.min.css'
 

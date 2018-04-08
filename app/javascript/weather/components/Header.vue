@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <sui-sidebar animation="overlay" :visible="sidebarVisible">
       <sui-menu-item header icon="times" @click="toggleSidebar">
         Saved Locations
@@ -11,27 +11,24 @@
         Weather
       </sui-menu-item>
     </sui-menu>
-    <sui-sidebar-pusher>
-      {{ message }}
-    </sui-sidebar-pusher>
   </div>
 </template>
 
 <script>
 export default {
-  data: function () {
+  data: () => {
     return {
-      message: "Hello Vue!",
       sidebarVisible: false
     }
   },
   methods: {
     toggleSidebar: function () {
-      this.sidebarVisible = !this.sidebarVisible;
+      this.sidebarVisible = !this.sidebarVisible
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
+
 </style>
